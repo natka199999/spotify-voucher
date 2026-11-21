@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Premium Voucher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505; /* Deep rich black */
+            overflow: hidden;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Premium Glassmorphism Card */
+        .glass-card {
+            background: rgba(30, 30, 30, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        /* Smooth Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes ambientGlow {
+            0%, 100% { opacity: 0.15; transform: scale(1) translate(0, 0); }
+            50% { opacity: 0.25; transform: scale(1.1) translate(2%, 2%); }
+        }
+
+        @keyframes pulseCTA {
+            0% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0.6); }
+            70% { box-shadow: 0 0 0 25px rgba(29, 185, 84, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .ambient-orb {
+            animation: ambientGlow 10s ease-in-out infinite alternate;
+        }
+
+        .cta-button {
+            animation: pulseCTA 2.5s infinite;
+        }
+        
+        .spotify-gradient-border {
+            background: linear-gradient(135deg, #1DB954, #000000);
+            padding: 4px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="relative text-white w-full h-full p-4">
+    
+    <!-- Ambient Background Glows -->
+    <div class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-[#1DB954] rounded-full mix-blend-screen filter blur-[150px] ambient-orb pointer-events-none"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[40vw] h-[40vw] bg-[#1DB954] rounded-full mix-blend-screen filter blur-[130px] ambient-orb pointer-events-none" style="animation-delay: -5s;"></div>
+
+    <!-- Main Glassmorphism Card -->
+    <div class="relative z-10 w-full max-w-lg mx-auto glass-card rounded-[2.5rem] p-8 sm:p-12 text-center animate-fade-in">
+        
+        <!-- Premium Cat Image (Vibing) -->
+        <div class="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto mb-8 animate-float">
+            <div class="spotify-gradient-border w-full h-full shadow-2xl shadow-[#1DB954]/20">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Vibing Cat" 
+                     class="w-full h-full object-cover rounded-full border-4 border-[#121212]">
+            </div>
+            <!-- Floating Spotify Accent -->
+            <div class="absolute -bottom-2 -right-2 bg-[#1DB954] w-12 h-12 rounded-full border-4 border-[#121212] flex items-center justify-center shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-black" viewBox="0 0 16 16">
+                  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.195c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.859zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="space-y-3">
+            <h1 class="text-2xl sm:text-3xl font-black leading-tight uppercase tracking-tight text-white drop-shadow-sm">
+                IT'S TIME TO SWITCH TO SOMETHING BETTER.
+            </h1>
+            <h2 class="text-xl sm:text-2xl font-black text-[#1DB954] drop-shadow-sm">
+                HERE IS YOUR SPOTIFY PREMIUM.
+            </h2>
+        </div>
+
+        <p class="text-gray-300 text-lg mt-6 mb-10 font-medium tracking-wide">
+            No more annoying ads!
+        </p>
+
+        <!-- Pulsing CTA Button -->
+        <a href="https://www.spotify.com/download/" target="_blank" rel="noopener noreferrer" class="cta-button inline-block w-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-bold text-lg sm:text-xl py-4 px-8 rounded-full uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95">
+            Download Spotify
+        </a>
+        
+    </div>
+
+</body>
+</html>
